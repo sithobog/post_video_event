@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151003123158) do
   create_table "events", force: :cascade do |t|
     t.string   "title",      null: false
     t.text     "address",    null: false
+    t.datetime "started_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,11 +33,11 @@ ActiveRecord::Schema.define(version: 20151003123158) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title",        null: false
-    t.string   "slug",         null: false
-    t.text     "descrtiption", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "title",       null: false
+    t.string   "slug",        null: false
+    t.text     "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

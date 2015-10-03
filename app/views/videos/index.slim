@@ -1,0 +1,12 @@
+= link_to 'New video',new_video_path, class: "btn btn-success"
+- if @videos.empty?
+	h1 No videos
+- else
+	- @videos.each do |video|
+		.col-sm-6
+			.panel.panel-default
+				.panel-heading = video.title
+				.panel-body
+					=  video.description
+					= link_to 'Edit', edit_video_path(video), class: "btn btn-warning pull-right"
+					= link_to 'Delete',video_path(video), class: "btn btn-danger pull-right", method: :delete

@@ -1,0 +1,12 @@
+= link_to 'New post',new_post_path, class: "btn btn-success"
+- if @posts.empty?
+	h1 No posts
+- else
+	- @posts.each do |post|
+		.col-sm-6
+			.panel.panel-default
+				.panel-heading = post.title
+				.panel-body
+					= post.content
+					= link_to 'Edit', edit_post_path(post), class: "btn btn-warning pull-right"
+					= link_to 'Delete',post_path(post), class: "btn btn-danger pull-right", method: :delete
