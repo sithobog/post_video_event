@@ -1,25 +1,26 @@
-= form_for @event do |f|
+.form
+  = form_for @event do |f|
 
-  -if @event.errors.any?
-    #error_explanation
-      h2
-        = pluralize(@event.errors.count, "error")
-        |  prohibited this event from being saved:
-      ol
-        - @event.errors.full_messages.each do |msg|
-          li = msg
+    -if @event.errors.any?
+      #error_explanation
+        h2
+          = pluralize(@event.errors.count, "error")
+          |  prohibited this event from being saved:
+        ol
+          - @event.errors.full_messages.each do |msg|
+            li = msg
 
-  = f.label :title
-  = f.text_field :title
+    = f.label :title
+    = f.text_field :title
 
-  = f.label :address
-  = f.text_field :address
+    = f.label :address
+    = f.text_field :address
 
-  = f.label :started_at
-  = f.date_field :started_at
+    = f.label :started_at
+    = f.date_field :started_at
 
-  = f.fields_for :attachment do |attach|
-    = attach.label :data
-    = attach.file_field :data
+    = f.fields_for :attachment do |attach|
+      = attach.label :data
+      = attach.file_field :data
 
-  = f.submit class: "btn btn-primary"
+    = f.submit class: "btn btn-primary"

@@ -1,25 +1,26 @@
-= form_for @post, html: { multipart: true } do |f|
+.form
+  = form_for @post, html: { multipart: true } do |f|
 
-  -if @post.errors.any?
-    #error_explanation
-      h2
-        = pluralize(@post.errors.count, "error")
-        |  prohibited this post from being saved:
-      ol
-        - @post.errors.full_messages.each do |msg|
-          li = msg
+    -if @post.errors.any?
+      #error_explanation
+        h2
+          = pluralize(@post.errors.count, "error")
+          |  prohibited this post from being saved:
+        ol
+          - @post.errors.full_messages.each do |msg|
+            li = msg
 
-  = f.label :title
-  = f.text_field :title
+    = f.label :title
+    = f.text_field :title
 
-  = f.label :slug
-  = f.text_field :slug
+    = f.label :slug
+    = f.text_field :slug
 
-  = f.label :content
-  = f.text_area :content
+    = f.label :content
+    = f.text_area :content
 
-  = f.fields_for :picture do |pic|
-    = pic.label :data
-    = pic.file_field :data
+    = f.fields_for :picture do |pic|
+      = pic.label :data
+      = pic.file_field :data
 
-  = f.submit class: "btn btn-primary"
+    = f.submit class: "btn btn-primary"

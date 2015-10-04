@@ -22,13 +22,51 @@
  }
 
  .comment p{
-    display: inline-block;
+  display: inline-block;
  }
 
  .notice{
- 		border: 2px solid orange;
+ 	border: 2px solid orange;
  }
 
  .alert{
- 		border: 2px solid red;
+ 	border: 2px solid red;
  }
+
+ .btn.btn-success{
+ 	margin: 10px 0 10px 30px;
+ }
+
+ .btn.btn-primary{
+ 	margin-top: 10px;
+ 	margin-bottom: 10px;
+ }
+
+.form{
+	border: 2px solid purple;
+	border-radius: 7px;
+	width: 25%;
+	margin: 0 auto;
+}
+
+ .form label, .form input{
+ 		display: block;
+ }
+
+ .form input, .form textarea{
+ 		width: 80%;
+ 		margin: 0 auto;
+ }
+
+ .form textarea{
+ 		margin-left: 10%;
+ }
+
+.form label{
+	margin-left: 10%;
+	font-size: 18px;
+}
+
+h2{
+	text-align: center;
+}

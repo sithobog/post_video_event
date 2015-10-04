@@ -1,1 +1,29 @@
-h1 HOME is here!
+.row
+  - if !@posts.empty?
+    h2 Latest posts
+    -@posts.each do |post|
+      = link_to post_path(post) do 
+        .well.col-md-4.text-center
+          = post.title
+          br
+          = image_tag(post.picture.data_url(:thumb))
+          br
+          = truncate(post.content, length: 45)
+.row
+  - if !@videos.empty?
+    h2 Latest videos
+    -@videos.each do |video|
+      = link_to video_path(video) do 
+        .well.col-md-4.text-center
+          = video.title
+          br
+          = truncate(video.description, length: 45)
+.row
+  - if !@events.empty?
+    h2 Latest events
+    -@events.each do |event|
+      = link_to event_path(event) do 
+        .well.col-md-4.text-center
+          = event.title
+          br
+          = event.started_at.strftime("%d %B %Y")
