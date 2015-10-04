@@ -29,6 +29,7 @@ gem 'slim'
 gem 'slim-rails'
 
 gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
 
