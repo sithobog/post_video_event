@@ -17,13 +17,12 @@ ActiveRecord::Schema.define(version: 20151004071550) do
   enable_extension "plpgsql"
 
   create_table "assets", force: :cascade do |t|
-    t.text     "filename",       null: false
-    t.string   "content_type"
-    t.integer  "file_size"
+    t.text     "filename",                  null: false
+    t.string   "type",           limit: 30
     t.integer  "assetable_id"
     t.string   "assetable_type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "assets", ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id", using: :btree

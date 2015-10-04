@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  before_action :find_event, only: [:show, :edit, :update, :destroy]
+  before_action :find_event, only: [:show, :edit, :update, :destroy, :download]
 
   def index
     @events = Event.all
@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.build_attachment
   end
 
   def edit
@@ -43,10 +44,14 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def download
+    path = "public#{@event.attachment.data_url}"
+    send_file path, :x_sendfile=>true
+  end
 
   private
     def event_params
-      params.require(:event).permit(:title, :address, :started_at)
+      params.require(:event).permit(:title, :address, :started_at, attachment_attributes: [:data])
     end
 
     def find_event

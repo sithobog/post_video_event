@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   
   root to: 'home#index'
+  get "/uploads/attachment/:id/:basename.:extension", :controller => "events", :action => "download"
 
   resources :posts do
     resources :comments, only: [:create]
   end
   resources :events do
-      resources :comments, only: [:create]
+    resources :comments, only: [:create]
   end
   resources :videos do
-      resources :comments, only: [:create]
+    resources :comments, only: [:create]
   end
 
   resources :comments, only: [:destroy]

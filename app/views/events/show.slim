@@ -6,5 +6,7 @@
     br
     | address:
     = @event.address
+    br
+    = link_to File.basename(@event.attachment.data_url), "/uploads/attachment/#{@event.id}/#{File.basename(@event.attachment.data_url)}"
 = render 'comments/comments_loop'
 = render 'comments/comment_form'

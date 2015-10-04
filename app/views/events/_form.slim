@@ -18,4 +18,8 @@
   = f.label :started_at
   = f.date_field :started_at
 
+  = f.fields_for :attachment do |attach|
+    = attach.label :data
+    = attach.file_field :data
+
   = f.submit class: "btn btn-primary"
