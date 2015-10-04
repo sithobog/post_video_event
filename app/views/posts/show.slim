@@ -6,6 +6,9 @@
     br
     | content:
     = @post.content
+    br
+    | image:
+    = image_tag(@post.picture.data_url)
 = render 'comments/comments_loop'
 = render 'comments/comment_form'
 

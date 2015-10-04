@@ -28,6 +28,8 @@ gem 'puma'
 gem 'slim'
 gem 'slim-rails'
 
+gem 'carrierwave'
+
 group :development, :test do
 
 	gem 'factory_girl_rails'
