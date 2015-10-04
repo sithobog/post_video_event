@@ -1,11 +1,12 @@
 class VideosController < ApplicationController
 
+  before_action :find_video, only: [:show, :edit, :update, :destroy]
+
   def index
     @videos = Video.all
   end  
 
   def show
-    @video = Video.find(params[:id])
     @comment = Comment.new
     @comments = @video.comments.all
   end
@@ -15,7 +16,6 @@ class VideosController < ApplicationController
   end
 
   def edit
-    @video = Video.find(params[:id])
   end
       
   def create
@@ -30,8 +30,6 @@ class VideosController < ApplicationController
 
 
   def update
-    @video = Video.find(params[:id])
-
     if @video.update(video_params)
       redirect_to @video
     else
@@ -40,7 +38,6 @@ class VideosController < ApplicationController
   end 
 
   def destroy
-    @video = Video.find(params[:id])
     @video.destroy
 
     redirect_to videos_path
@@ -50,5 +47,11 @@ class VideosController < ApplicationController
   private
     def video_params
       params.require(:video).permit(:title, :slug, :description)
-    end  
+    end
+
+    def find_video
+      @video = Video.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to videos_path, alert: not_found_alert
+    end     
 end

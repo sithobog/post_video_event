@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
 
+  before_action :find_event, only: [:show, :edit, :update, :destroy]
+
   def index
     @events = Event.all
   end  
 
   def show
-    @event = Event.find(params[:id])
     @comment = Comment.new
     @comments = @event.comments.all
   end
@@ -15,7 +16,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
   end
       
   def create
@@ -30,8 +30,6 @@ class EventsController < ApplicationController
 
 
   def update
-    @event = Event.find(params[:id])
-
     if @event.update(event_params)
       redirect_to @event
     else
@@ -40,7 +38,6 @@ class EventsController < ApplicationController
   end 
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
 
     redirect_to events_path
@@ -50,5 +47,12 @@ class EventsController < ApplicationController
   private
     def event_params
       params.require(:event).permit(:title, :address, :started_at)
+    end
+
+    def find_event
+      @event = Event.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to events_path, alert: not_found_alert
     end   
+
 end

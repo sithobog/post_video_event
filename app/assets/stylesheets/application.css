@@ -23,5 +23,12 @@
 
  .comment p{
     display: inline-block;
+ }
 
+ .notice{
+ 		border: 2px solid orange;
+ }
+
+ .alert{
+ 		border: 2px solid red;
  }

@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
 
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end  
 
   def show
-    @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.all
   end
@@ -16,7 +17,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
       
   def create
@@ -31,8 +31,6 @@ class PostsController < ApplicationController
 
 
   def update
-    @post = Post.find(params[:id])
-
     if @post.update(post_params)
       redirect_to @post
     else
@@ -41,15 +39,21 @@ class PostsController < ApplicationController
   end 
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
 
     redirect_to posts_path
   end
 
 
+
   private
     def post_params
       params.require(:post).permit(:title, :slug, :content, picture_attributes: [:data])
+    end
+
+    def find_post
+      @post = Post.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to posts_path, alert: not_found_alert 
     end   
 end

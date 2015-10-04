@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
+  before_action :find_target, only: [:create]
+
   def create
-    find_target
     @comment = @target.comments.create(comment_params)
     respond_to do |format|
       format.html {redirect_to :controller => @target.class.to_s.pluralize.downcase, :action => :show, :id => @target.id}
@@ -15,10 +16,9 @@ class CommentsController < ApplicationController
   end
 
   private
-
   def find_target
-    @klass = params[:target_type].capitalize.constantize
-    @target = @klass.find(params[:target_id])
+    klass = params[:target_type].capitalize.constantize
+    @target = klass.find(params[:target_id])
   end
 
   def comment_params

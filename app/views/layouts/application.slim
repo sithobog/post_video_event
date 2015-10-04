@@ -10,4 +10,8 @@ html
 		= render 'header'
 		.container
 			.row
+				- if notice
+					.notice = flash[:notice]
+				- if alert
+					.alert = flash[:alert]
 				== yield
