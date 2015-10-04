@@ -1,11 +1,13 @@
 class VideosController < ApplicationController
 
-	def index
+  def index
     @videos = Video.all
   end  
 
   def show
     @video = Video.find(params[:id])
+    @comment = Comment.new
+    @comments = @video.comments.all
   end
 
   def new
@@ -17,10 +19,10 @@ class VideosController < ApplicationController
   end
       
   def create
-  	@video = Video.new(video_params)
+    @video = Video.new(video_params)
 
-  	if @video.save
-  	  redirect_to @video
+    if @video.save
+      redirect_to @video
     else
       render 'new'
     end    

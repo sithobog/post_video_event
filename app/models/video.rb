@@ -1,3 +1,4 @@
 class Video < ActiveRecord::Base
-	validates :title, :slug, :description, presence: true
+  has_many :comments, :as => :target, dependent: :destroy
+  validates :title, :slug, :description, presence: true
 end

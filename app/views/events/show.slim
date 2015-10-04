@@ -1,8 +1,10 @@
 .panel.panel-info
-	.panel-heading = @event.title
-	.panel-body
-		| start date:
-		= @event.started_at
-		br
-		| address:
-		= @event.address
+  .panel-heading = @event.title
+  .panel-body
+    | start date:
+    = @event.started_at
+    br
+    | address:
+    = @event.address
+= render 'comments/comments_loop'
+= render 'comments/comment_form'

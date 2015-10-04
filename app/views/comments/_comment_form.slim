@@ -1,0 +1,8 @@
+= form_for @comment, :url => target_url do |f|
+  =f.label :author_name
+  =f.text_field :author_name
+  br
+  =f.label :content
+  =f.text_area :content
+  br
+  =f.submit

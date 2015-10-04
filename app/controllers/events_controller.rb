@@ -1,11 +1,13 @@
 class EventsController < ApplicationController
 
-	def index
+  def index
     @events = Event.all
   end  
 
   def show
     @event = Event.find(params[:id])
+    @comment = Comment.new
+    @comments = @event.comments.all
   end
 
   def new
@@ -17,10 +19,10 @@ class EventsController < ApplicationController
   end
       
   def create
-  	@event = Event.new(event_params)
+    @event = Event.new(event_params)
 
-  	if @event.save
-  	  redirect_to @event
+    if @event.save
+      redirect_to @event
     else
       render 'new'
     end    
@@ -48,5 +50,5 @@ class EventsController < ApplicationController
   private
     def event_params
       params.require(:event).permit(:title, :address, :started_at)
-    end  	
+    end   
 end

@@ -2,9 +2,17 @@ Rails.application.routes.draw do
   
   root to: 'home#index'
 
-  resources :posts
-  resources :events
-  resources :videos
+  resources :posts do
+    resources :comments, only: [:create]
+  end
+  resources :events do
+      resources :comments, only: [:create]
+  end
+  resources :videos do
+      resources :comments, only: [:create]
+  end
+
+  resources :comments, only: [:destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

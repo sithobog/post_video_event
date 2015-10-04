@@ -1,3 +1,4 @@
 class Event < ActiveRecord::Base
-	validates :title, :address, :started_at, presence: true
+  has_many :comments, :as => :target, dependent: :destroy
+  validates :title, :address, :started_at, presence: true
 end

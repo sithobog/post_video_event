@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
 
-	def index
+  def index
     @posts = Post.all
   end  
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.all
   end
 
   def new
@@ -17,10 +19,10 @@ class PostsController < ApplicationController
   end
       
   def create
-  	@post = Post.new(post_params)
+    @post = Post.new(post_params)
 
-  	if @post.save
-  	  redirect_to @post
+    if @post.save
+      redirect_to @post
     else
       render 'new'
     end    
@@ -48,5 +50,5 @@ class PostsController < ApplicationController
   private
     def post_params
       params.require(:post).permit(:title, :slug, :content)
-    end  	
+    end   
 end

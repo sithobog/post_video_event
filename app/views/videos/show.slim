@@ -1,8 +1,10 @@
 .panel.panel-info
-	.panel-heading = @video.title
-	.panel-body
-		| slug:
-		= @video.slug
-		br
-		| description:
-		= @video.description
+  .panel-heading = @video.title
+  .panel-body
+    | slug:
+    = @video.slug
+    br
+    | description:
+    = @video.description
+= render 'comments/comments_loop'
+= render 'comments/comment_form'

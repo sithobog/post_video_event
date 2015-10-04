@@ -1,3 +1,4 @@
 class Post < ActiveRecord::Base
-	validates :title, :slug, :content, presence: true
+  has_many :comments, :as => :target, dependent: :destroy
+  validates :title, :slug, :content, presence: true
 end
