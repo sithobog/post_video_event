@@ -13,8 +13,7 @@
       = @post.content
       br
       | image:
-      = image_tag(@post.picture.data_url)
-    = link_to 'View pdf', post_path(@post, format: 'pdf'), class: "btn btn-info"
+      = wicked_pdf_image_tag @post.picture.data_url
 = render 'comments/comments_loop'
 = render 'comments/comment_form'
 

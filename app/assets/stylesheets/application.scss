@@ -16,6 +16,9 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
  .comment{
   border: 2px solid black;
   padding: 7px;

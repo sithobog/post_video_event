@@ -28,10 +28,18 @@ gem 'puma'
 gem 'slim'
 gem 'slim-rails'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'select2-rails'
+
+#to create pdf documentw
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 group :development, :test do
 
