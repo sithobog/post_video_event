@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004071550) do
+ActiveRecord::Schema.define(version: 20151007064659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,28 +39,44 @@ ActiveRecord::Schema.define(version: 20151004071550) do
   add_index "comments", ["target_type", "target_id"], name: "index_comments_on_target_type_and_target_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.text     "address",    null: false
-    t.datetime "started_at", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",                   null: false
+    t.text     "address",                 null: false
+    t.datetime "started_at",              null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "tag_ids",    default: [],              array: true
   end
 
+  add_index "events", ["tag_ids"], name: "index_events_on_tag_ids", using: :gin
+
   create_table "posts", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "slug",       null: false
-    t.text     "content",    null: false
+    t.string   "title",                   null: false
+    t.string   "slug",                    null: false
+    t.text     "content",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "image"
+    t.integer  "tag_ids",    default: [],              array: true
+  end
+
+  add_index "posts", ["tag_ids"], name: "index_posts_on_tag_ids", using: :gin
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "image"
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.string   "slug",        null: false
-    t.text     "description", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",                    null: false
+    t.string   "slug",                     null: false
+    t.text     "description",              null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "tag_ids",     default: [],              array: true
   end
+
+  add_index "videos", ["tag_ids"], name: "index_videos_on_tag_ids", using: :gin
 
 end

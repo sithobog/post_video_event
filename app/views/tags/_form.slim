@@ -1,0 +1,19 @@
+.form
+  = form_for @tag do |f|
+
+    -if @tag.errors.any?
+      #error_explanation
+        h2
+          = pluralize(@tag.errors.count, "error")
+          |  prohibited this tag from being saved:
+        ol
+          - @tag.errors.full_messages.each do |msg|
+            li = msg
+
+    = f.label :name
+    = f.text_field :name
+
+    = f.label :slug
+    = f.text_field :slug
+
+    = f.submit class: "btn btn-primary"
