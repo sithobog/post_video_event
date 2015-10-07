@@ -2,4 +2,5 @@
 
 This application has polymorphic associations for comments and STI pattern for assets(pictures and attachemnts).
 Carrierwave gem allows user to load on server images for posts and files for events. User can download files that attached to event.
-[Show post](http://i003.radikal.ru/1510/19/b0cc46f75ea3.png)
+[Show post]
+http://i003.radikal.ru/1510/19/b0cc46f75ea3.png
