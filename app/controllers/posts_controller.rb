@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end  
 
   def show
+    @post_tags = Tag.where(id: @post.tag_ids)
     @comment = Comment.new
     @comments = @post.comments.all
   end

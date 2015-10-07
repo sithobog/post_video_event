@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+	include Taggable
+
   has_many :comments, :as => :target, dependent: :destroy
   has_one :picture, as: :assetable, dependent: :destroy
 

@@ -1,0 +1,13 @@
+h2 You have searched for #{@tag.name} tag
+.row
+	- if @posts.empty?
+		No posts
+	- else 
+		- @posts.each do |post|
+			.col-xs-12
+				= link_to "#{post.title}", post
+				br
+				= truncate(post.content, length: 50)
+				br
+				b created at: 
+				= post.created_at.strftime("%d %B %Y")

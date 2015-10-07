@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:destroy]
-  resources :tags , only: [:index, :new, :create, :destroy]
+  resources :tags , only: [:index, :new, :create, :destroy, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

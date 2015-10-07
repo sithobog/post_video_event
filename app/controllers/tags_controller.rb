@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
 
-  before_action :find_tag, only: [:destroy]
+  before_action :find_tag, only: [:show]
 
   def index
     @tags = Tag.all
@@ -8,6 +8,10 @@ class TagsController < ApplicationController
 
   def new
     @tag = Tag.new
+  end
+
+  def show
+    @posts = Post.any_tags(@tag.id).order(:id).limit(50)
   end
 
       
@@ -23,6 +27,7 @@ class TagsController < ApplicationController
 
 
   def destroy
+    @tag = Tag.find(params[:id])
     @tag.destroy
 
     redirect_to tags_path
@@ -36,9 +41,7 @@ class TagsController < ApplicationController
     end
 
     def find_tag
-      @tag = Tag.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-      redirect_to tags_path, alert: not_found_alert 
+      @tag = Tag.where(slug: params[:id]).first
     end   
 
 end

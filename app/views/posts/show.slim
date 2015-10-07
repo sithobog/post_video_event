@@ -1,14 +1,19 @@
 .panel.panel-info
   .panel-heading = @post.title
   .panel-body
-    | slug:
-    = @post.slug
-    br
-    | content:
-    = @post.content
-    br
-    | image:
-    = image_tag(@post.picture.data_url)
+    -if !@post_tags.empty?
+      - @post_tags.each do |tag|
+        span.tag
+          = link_to "#{tag.name}", tag_path(tag)
+    .main-part
+      | slug:
+      = @post.slug
+      br
+      | content:
+      = @post.content
+      br
+      | image:
+      = image_tag(@post.picture.data_url)
 = render 'comments/comments_loop'
 = render 'comments/comment_form'
 

@@ -79,3 +79,15 @@ h2{
 	margin-left: 10%;
 	margin-top: 10px;
 }
+
+span.tag{
+	padding: 3px;
+	border: 2px solid green;
+	border-radius: 4px;
+	margin: 0 3px 0 3px;
+	font-weight: bold;
+}
+
+.main-part{
+	margin-top: 8px;
+}
