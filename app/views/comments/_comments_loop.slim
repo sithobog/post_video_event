@@ -1,5 +1,5 @@
 - if @comments.empty?
-  p Here is no comment yet
+  h3 Here is no comment yet
 - else
   - @comments.each do |comment|
     .comment
@@ -8,6 +8,5 @@
         = comment.author_name
       br
       p
-        b Content: 
         = comment.content
       = link_to 'Delete', comment_path(comment), class: "btn btn-danger pull-right", method: :delete
