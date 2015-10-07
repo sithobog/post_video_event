@@ -31,6 +31,8 @@ gem 'slim-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'select2-rails'
+
 group :development, :test do
 
 	gem 'factory_girl_rails'

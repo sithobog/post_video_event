@@ -151,6 +151,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    select2-rails (4.0.0)
+      thor (~> 0.14)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -203,6 +205,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  select2-rails
   slim
   slim-rails
   spring

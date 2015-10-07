@@ -10,6 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require select2
+ *= require select2-bootstrap
  *= require_tree .
  *= require_self
  */
@@ -53,20 +55,27 @@
  		display: block;
  }
 
- .form input, .form textarea{
+ .form input, .form textarea, .form select{
  		width: 80%;
  		margin: 0 auto;
  }
 
- .form textarea{
+ .form textarea, .form select{
  		margin-left: 10%;
+ 		margin-top: 10px;
  }
 
 .form label{
 	margin-left: 10%;
 	font-size: 18px;
+	margin-top: 7px;
 }
 
 h2{
 	text-align: center;
+}
+
+.select2.select2-container{
+	margin-left: 10%;
+	margin-top: 10px;
 }

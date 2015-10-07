@@ -12,15 +12,18 @@ class PostsController < ApplicationController
   end
 
   def new
+    grab_tags
     @post = Post.new
     @post.build_picture
   end
 
   def edit
+    grab_tags
   end
       
   def create
     @post = Post.new(post_params)
+    @post.tag_ids = params[:tag_ids]
 
     if @post.save
       redirect_to @post
@@ -56,4 +59,8 @@ class PostsController < ApplicationController
       rescue ActiveRecord::RecordNotFound
       redirect_to posts_path, alert: not_found_alert 
     end   
+
+    def grab_tags
+      @tags = Tag.all
+    end
 end
