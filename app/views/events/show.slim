@@ -2,6 +2,7 @@
   .panel-heading = @event.title
   .panel-body
   	= render "tag_loop"
+    == link_to_pdf(@event)
     br
     | start date:
     = @event.started_at

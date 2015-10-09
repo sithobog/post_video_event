@@ -11,6 +11,14 @@ class EventsController < ApplicationController
     @tags = Tag.where(id: @event.tag_ids)
     @comment = Comment.new
     @comments = @event.comments.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render template: "/events/show.slim",
+                pdf: "report",
+                layout: "pdf.slim"
+      end
+    end
   end
 
   def new
