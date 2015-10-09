@@ -43,6 +43,7 @@ class PostsController < ApplicationController
 
 
   def update
+    @post.tag_ids = params[:tag_ids] if params[:tag_ids]
     if @post.update(post_params)
       redirect_to @post
     else
