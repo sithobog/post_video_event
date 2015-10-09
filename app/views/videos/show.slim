@@ -1,6 +1,8 @@
 .panel.panel-info
   .panel-heading = @video.title
   .panel-body
+  	= render "tag_loop"
+  	br
     | slug:
     = @video.slug
     br

@@ -19,6 +19,9 @@
     = f.label :started_at
     = f.date_field :started_at
 
+    = f.label :tags
+    = select_tag(:tag_ids,options_from_collection_for_select(@tags, :id, :name, @event.tag_ids), multiple: true, class: 'form-control')
+
     = f.fields_for :attachment do |attach|
       = attach.label :data
       = attach.file_field :data

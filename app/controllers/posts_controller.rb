@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
 
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :grab_tags, only: [:new, :edit]
 
   def index
     @posts = Post.all
   end  
 
   def show
-    @post_tags = Tag.where(id: @post.tag_ids)
+    @tags = Tag.where(id: @post.tag_ids)
     @comment = Comment.new
     @comments = @post.comments.all
     respond_to do |format|
@@ -21,13 +22,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    grab_tags
     @post = Post.new
     @post.build_picture
   end
 
   def edit
-    grab_tags
   end
       
   def create
@@ -69,8 +68,4 @@ class PostsController < ApplicationController
       rescue ActiveRecord::RecordNotFound
       redirect_to posts_path, alert: not_found_alert 
     end   
-
-    def grab_tags
-      @tags = Tag.all
-    end
 end

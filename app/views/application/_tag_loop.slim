@@ -1,0 +1,4 @@
+- @tags.each do |tag|
+  span.tag
+    i.glyphicon.glyphicon-tags
+    = link_to "#{tag.name}", tag_path(tag), class: "tag-link"

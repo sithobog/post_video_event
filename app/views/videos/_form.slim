@@ -19,4 +19,7 @@
     = f.label :description
     = f.text_area :description
 
+    = f.label :tags
+    = select_tag(:tag_ids,options_from_collection_for_select(@tags, :id, :name, @video.tag_ids), multiple: true, class: 'form-control')
+
     = f.submit class: "btn btn-primary"

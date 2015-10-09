@@ -1,6 +1,8 @@
 .panel.panel-info
   .panel-heading = @event.title
   .panel-body
+  	= render "tag_loop"
+    br
     | start date:
     = @event.started_at
     br

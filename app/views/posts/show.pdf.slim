@@ -1,12 +1,9 @@
 h2  #{@post.title}
--if !@post_tags.empty?
+-if !@tags.empty?
   p.slug = @post.created_at.strftime("%d %B %Y")
   br
   = link_to 'View pdf', post_path(@post, format: 'pdf'), class: "btn btn-info pull-right"
-  - @post_tags.each do |tag|
-    span.tag
-      i.glyphicon.glyphicon-tags
-      = link_to "#{tag.name}", tag_path(tag), class: "tag-link"
+  =render "tag_loop"
   .main-part
     = wicked_pdf_image_tag @post.picture.data_url
     p.content = @post.content

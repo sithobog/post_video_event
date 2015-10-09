@@ -7,5 +7,10 @@ class ApplicationController < ActionController::Base
   def not_found_alert(obj = controller_name)
   	"#{obj.singularize.capitalize} with id=#{params[:id]} doesn't exist"
   end
+
+  private
+	  def grab_tags
+	  	@tags = Tag.all
+	  end
   
 end

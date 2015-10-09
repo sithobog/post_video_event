@@ -1,12 +1,14 @@
 class EventsController < ApplicationController
 
   before_action :find_event, only: [:show, :edit, :update, :destroy, :download]
+  before_action :grab_tags, only: [:new, :edit]
 
   def index
     @events = Event.all
   end  
 
   def show
+    @tags = Tag.where(id: @event.tag_ids)
     @comment = Comment.new
     @comments = @event.comments.all
   end
@@ -21,6 +23,7 @@ class EventsController < ApplicationController
       
   def create
     @event = Event.new(event_params)
+    @event.tag_ids = params[:tag_ids]
 
     if @event.save
       redirect_to @event
@@ -31,6 +34,7 @@ class EventsController < ApplicationController
 
 
   def update
+    @event.tag_ids = params[:tag_ids] if params[:tag_ids]
     if @event.update(event_params)
       redirect_to @event
     else

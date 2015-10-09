@@ -1,12 +1,14 @@
 class VideosController < ApplicationController
 
   before_action :find_video, only: [:show, :edit, :update, :destroy]
+  before_action :grab_tags, only: [:new, :edit]
 
   def index
     @videos = Video.all
   end  
 
   def show
+    @tags = Tag.where(id: @video.tag_ids)
     @comment = Comment.new
     @comments = @video.comments.all
   end
@@ -20,6 +22,7 @@ class VideosController < ApplicationController
       
   def create
     @video = Video.new(video_params)
+    @video.tag_ids = params[:tag_ids]
 
     if @video.save
       redirect_to @video
@@ -30,6 +33,7 @@ class VideosController < ApplicationController
 
 
   def update
+    @video.tag_ids = params[:tag_ids] if params[:tag_ids]
     if @video.update(video_params)
       redirect_to @video
     else
