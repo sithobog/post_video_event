@@ -1,0 +1,5 @@
+.well
+	h4 Event
+	= link_to "#{event.title}", event
+	p started date: #{event.started_at.strftime("%d %B %Y")}
+	p address: #{event.address}

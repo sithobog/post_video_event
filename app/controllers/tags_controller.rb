@@ -11,7 +11,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    @posts = Post.any_tags(@tag.id).order(:id).limit(50)
+    @entries = ContentView.any_tags(@tag.id).recently
   end
 
       
@@ -42,6 +42,7 @@ class TagsController < ApplicationController
 
     def find_tag
       @tag = Tag.where(slug: params[:id]).first
+      raise ActiveRecord::RecordNotFound.new("Tag by #{params[:id]} not found") if @tag.nil?
     end   
 
 end
