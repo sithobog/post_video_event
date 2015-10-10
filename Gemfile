@@ -45,6 +45,8 @@ gem 'kaminari'
 
 gem 'annotate'
 
+gem 'faker'
+
 
 group :development, :test do
 
