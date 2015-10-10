@@ -11,7 +11,7 @@ class TagsController < ApplicationController
   end
 
   def show
-    @entries = ContentView.any_tags(@tag.id).recently
+    @entries = ContentView.any_tags(@tag.id).recently.page params[:page]
   end
 
       

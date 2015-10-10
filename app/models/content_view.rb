@@ -1,4 +1,7 @@
 class ContentView < ActiveRecord::Base
+
+	paginates_per 10
+
 	self.table_name = "content_views"
 	self.primary_key = "id"
 

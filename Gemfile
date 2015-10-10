@@ -40,6 +40,9 @@ gem 'select2-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+#paginator
+gem 'kaminari'
+
 
 group :development, :test do
 

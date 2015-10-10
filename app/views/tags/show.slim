@@ -4,3 +4,5 @@ h2 You have searched for #{@tag.name} tag
 		No entries
 	- else
 		= render @entries
+
+		= paginate @entries 
