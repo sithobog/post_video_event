@@ -43,6 +43,8 @@ gem 'wkhtmltopdf-binary'
 #paginator
 gem 'kaminari'
 
+gem 'annotate'
+
 
 group :development, :test do
 

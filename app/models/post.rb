@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  title      :string           not null
+#  slug       :string           not null
+#  content    :text             not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  tag_ids    :integer          default([]), is an Array
+#
+
 class Post < ActiveRecord::Base
 	include Taggable
 

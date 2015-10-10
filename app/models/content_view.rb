@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: content_views
+#
+#  id          :integer          primary key
+#  title       :string
+#  type        :text
+#  slug        :string
+#  content     :text
+#  description :text
+#  started_at  :datetime
+#  address     :text
+#  tag_ids     :integer          is an Array
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class ContentView < ActiveRecord::Base
 
 	paginates_per 10
