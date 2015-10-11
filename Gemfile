@@ -53,6 +53,9 @@ gem 'faker'
 #gem for tag cloud
 gem "jqcloud-rails"
 
+#gem for deploy on heroku
+gem 'rails_12factor', group: :production
+
 
 group :development, :test do
 
@@ -72,3 +75,4 @@ group :development, :test do
   gem 'spring'
 end
 
+ruby "2.2.2"
