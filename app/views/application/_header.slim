@@ -1,7 +1,7 @@
 .container
   ul class="nav nav-tabs"
     li role="presentation"
-      = link_to 'Home',root_path
+      = link_to 'Home',root_path, data: {no_turbolink: true}
     li role="presentation"
       = link_to 'Posts',posts_path
     li role="presentation"
