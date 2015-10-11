@@ -4,7 +4,7 @@ class VideosController < ApplicationController
   before_action :grab_tags, only: [:new, :edit]
 
   def index
-    @videos = Video.all
+    @videos = Video.all.page params[:page]
   end  
 
   def show

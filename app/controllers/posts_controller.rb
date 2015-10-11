@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :grab_tags, only: [:new, :edit]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page params[:page]
   end  
 
   def show

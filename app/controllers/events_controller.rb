@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :grab_tags, only: [:new, :edit]
 
   def index
-    @events = Event.all
+    @events = Event.all.page params[:page]
   end  
 
   def show

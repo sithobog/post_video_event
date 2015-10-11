@@ -14,3 +14,5 @@
 						= event.started_at.strftime("%d %B %Y")
 						= link_to 'Edit', edit_event_path(event), class: "btn btn-warning pull-right"
 						= link_to 'Delete',event_path(event), class: "btn btn-danger pull-right", method: :delete
+.row
+	= paginate @events 

@@ -11,6 +11,8 @@
 					.panel-heading
 						=link_to video.title, video
 					.panel-body
-						=  video.description
+						=  truncate(video.description, length: 50)
 						= link_to 'Edit', edit_video_path(video), class: "btn btn-warning pull-right"
 						= link_to 'Delete',video_path(video), class: "btn btn-danger pull-right", method: :delete
+.row
+	= paginate @videos 
