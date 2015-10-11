@@ -65,12 +65,12 @@ RSpec.describe TagsController, type: :controller do
 
     it "deletes the tag" do
       expect {
-        delete :destroy, id: @tag.id
+        delete :destroy, id: @tag.slug
       }.to change(Tag, :count).by(-1)
     end
 
     it "redirects to tag#index" do
-      delete :destroy, id: @tag.id
+      delete :destroy, id: @tag.slug
       expect(response).to redirect_to tags_path
     end
   end
