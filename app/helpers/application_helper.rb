@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def link_to_pdf(obj)
-  	"<a href='#{obj.id}.pdf' class='btn btn-info pull-right'>View pdf</a>"
+    "<a href='#{obj.id}.pdf' class='btn btn-info pull-right'>View pdf</a>"
   end
 end

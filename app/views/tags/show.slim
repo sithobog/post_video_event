@@ -1,8 +1,8 @@
 h2 You have searched for #{@tag.name} tag
 .row
-	- if @entries.empty?
-		No entries
-	- else
-		= render @entries
+  - if @entries.empty?
+    No entries
+  - else
+    = render @entries
 
-		= paginate @entries 
+    = paginate @entries 

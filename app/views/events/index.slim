@@ -1,18 +1,18 @@
 .row
-	.col-xs-12
-		= link_to 'New event',new_event_path, class: "btn btn-success"
+  .col-xs-12
+    = link_to 'New event',new_event_path, class: "btn btn-success"
 .row
-	- if @events.empty?
-		h1 No events
-	- else
-		- @events.each do |event|
-			.col-sm-6
-				.panel.panel-default
-					.panel-heading
-						=link_to event.title, event
-					.panel-body
-						= event.started_at.strftime("%d %B %Y")
-						= link_to 'Edit', edit_event_path(event), class: "btn btn-warning pull-right"
-						= link_to 'Delete',event_path(event), class: "btn btn-danger pull-right", method: :delete
+  - if @events.empty?
+    h1 No events
+  - else
+    - @events.each do |event|
+      .col-sm-6
+        .panel.panel-default
+          .panel-heading
+            =link_to event.title, event
+          .panel-body
+            = event.started_at.strftime("%d %B %Y")
+            = link_to 'Edit', edit_event_path(event), class: "btn btn-warning pull-right"
+            = link_to 'Delete',event_path(event), class: "btn btn-danger pull-right", method: :delete
 .row
-	= paginate @events 
+  = paginate @events 

@@ -1,9 +1,9 @@
 .panel.panel-info
   .panel-heading = @video.title
   .panel-body
-  	= render "tag_loop"
+    = render "tag_loop"
     == link_to_pdf(@video)
-  	br
+    br
     | slug:
     = @video.slug
     br

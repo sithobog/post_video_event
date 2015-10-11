@@ -10,10 +10,10 @@
 #
 
 class Tag < ActiveRecord::Base
-	validates :name, :slug , presence: true, uniqueness: true
-	validates_format_of :slug, without: /[.]/, message: "can't include '.'"
+  validates :name, :slug , presence: true, uniqueness: true
+  validates_format_of :slug, without: /[.]/, message: "can't include '.'"
 
-	def to_param
-		slug
-	end
+  def to_param
+    slug
+  end
 end

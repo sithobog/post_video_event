@@ -1,5 +1,5 @@
 module Taggable
-	extend ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
   included do
     scope :any_tags, -> (tags){ where('tag_ids && ARRAY[?]', Array.wrap(tags).map(&:to_i)) }
