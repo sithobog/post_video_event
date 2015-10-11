@@ -78,9 +78,19 @@ namespace :populate do
 
   desc "Create random tags"
   task tags: :environment do
-    Tag.populate(10) do |tag|
-      tag.name = Faker::Internet.user_name
-      tag.slug = Faker::Internet.slug
+    random_number = Random.new.rand(10..20)
+    random_number.times do |n|
+      name = Faker::Internet.user_name
+      slug = Faker::Lorem.word
+      #go to next iteration if name/slug isn't unique
+      #
+      begin
+      Tag.create!(name: name,
+                  slug: slug)
+      rescue ActiveRecord::RecordInvalid
+        next
+      end
     end
+
   end
 end
