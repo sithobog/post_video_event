@@ -1,6 +1,16 @@
 == Poly+SIT
+Demo: https://peaceful-wave-5002.herokuapp.com/
+
+To populate DB use:
+
+1)Create tags
+ rake populate:tags
+2)Create videos/posts/events
+ rake populate:events
+ rake populate:videos
+ rake populate:posts
 
 This application has polymorphic associations for comments and STI pattern for assets(pictures and attachemnts).
-Carrierwave gem allows user to load on server images for posts and files for events. User can download files that attached to event.
+Carrierwave gem allows user to load on server images for posts and files for events. User can download files that attached to event. JQCloud plugin creates tag cloud.
 [Show post]
 http://i003.radikal.ru/1510/19/b0cc46f75ea3.png
