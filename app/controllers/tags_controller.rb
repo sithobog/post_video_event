@@ -27,7 +27,7 @@ class TagsController < ApplicationController
 
 
   def destroy
-    @tag = Tag.find(params[:id])
+    @tag = Tag.where(slug: params[:id]).first
     @tag.destroy
 
     redirect_to tags_path
