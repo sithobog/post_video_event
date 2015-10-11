@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require select2
+//= require jqcloud
 //= require_tree .

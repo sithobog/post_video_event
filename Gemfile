@@ -36,6 +36,9 @@ gem 'mini_magick'
 
 gem 'select2-rails'
 
+#to pass variables from controllers to js
+gem 'gon'
+
 #to create pdf documentw
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
@@ -46,6 +49,9 @@ gem 'kaminari'
 gem 'annotate'
 
 gem 'faker'
+
+#gem for tag cloud
+gem "jqcloud-rails"
 
 
 group :development, :test do

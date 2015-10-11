@@ -1,4 +1,7 @@
 .row
+  h2.tag_cloud Tag cloud
+  #tag_cloud
+.row
   - if !@posts.empty?
     h2 Latest posts
     -@posts.each do |post|
@@ -27,3 +30,6 @@
           = event.title
           br
           = event.started_at.strftime("%d %B %Y")
+
+
+
