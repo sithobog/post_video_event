@@ -7,11 +7,11 @@ namespace :populate do
     tag_count = Tag.all.count
     random_number = Random.new.rand(20..30)
     random_number.times do |n|
-      prng = Random.new
+      random_array = get_3_random(tag_count)
       title = Faker::Company.catch_phrase
       slug = Faker::Internet.slug
       content = Faker::Lorem.paragraph
-      tag_ids = [prng.rand(tag_count),prng.rand(tag_count),prng.rand(tag_count)]
+      tag_ids = [random_array[0],random_array[1],random_array[2]]
       Post.create!(title: title,
                    slug: slug,
                    content: content,
@@ -35,11 +35,11 @@ namespace :populate do
     tag_count = Tag.all.count
     random_number = Random.new.rand(20..30)
     random_number.times do |n|
-      prng = Random.new
+      random_array = get_3_random(tag_count)
       title = Faker::Company.catch_phrase
       address = Faker::Address.street_address
       started_at = Faker::Date.forward(10)
-      tag_ids = [prng.rand(tag_count),prng.rand(tag_count),prng.rand(tag_count)]
+      tag_ids = [random_array[0],random_array[1],random_array[2]]
       Event.create!(title: title,
                     address: address,
                     started_at: started_at,
@@ -63,11 +63,11 @@ namespace :populate do
     tag_count = Tag.all.count
     random_number = Random.new.rand(20..30)
     random_number.times do |n|
-      prng = Random.new
+      random_array = get_3_random(tag_count)
       title = Faker::Company.catch_phrase
       slug = Faker::Internet.slug
       description = Faker::Lorem.paragraph
-      tag_ids = [prng.rand(tag_count),prng.rand(tag_count),prng.rand(tag_count)]
+      tag_ids = [random_array[0],random_array[1],random_array[2]]
       Video.create!(title: title,
                     slug: slug,
                     description: description,
@@ -91,6 +91,22 @@ namespace :populate do
         next
       end
     end
-
   end
+
+  #Create 3 random numbers that not equal to each other
+  #
+  def get_3_random(tag_count)
+    prng = Random.new
+    check = true
+    while check do
+      a = prng.rand(tag_count)+1
+      b = prng.rand(tag_count)+1
+      c = prng.rand(tag_count)+1
+      check = false if a != b && b != c && c != a
+    end
+    [a,b,c]
+  end
+
+
+
 end
