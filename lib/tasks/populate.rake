@@ -7,7 +7,7 @@ namespace :populate do
     tag_count = Tag.all.count
     random_number = Random.new.rand(20..30)
     random_number.times do |n|
-      random_array = get_3_random(tag_count)
+      random_array = (1..tag_count).to_a.sample(3)
       title = Faker::Company.catch_phrase
       slug = Faker::Internet.slug
       content = Faker::Lorem.paragraph
@@ -35,7 +35,7 @@ namespace :populate do
     tag_count = Tag.all.count
     random_number = Random.new.rand(20..30)
     random_number.times do |n|
-      random_array = get_3_random(tag_count)
+      random_array = (1..tag_count).to_a.sample(3)
       title = Faker::Company.catch_phrase
       address = Faker::Address.street_address
       started_at = Faker::Date.forward(10)
@@ -63,7 +63,7 @@ namespace :populate do
     tag_count = Tag.all.count
     random_number = Random.new.rand(20..30)
     random_number.times do |n|
-      random_array = get_3_random(tag_count)
+      random_array = (1..tag_count).to_a.sample(3)
       title = Faker::Company.catch_phrase
       slug = Faker::Internet.slug
       description = Faker::Lorem.paragraph
@@ -92,21 +92,5 @@ namespace :populate do
       end
     end
   end
-
-  #Create 3 random numbers that not equal to each other
-  #
-  def get_3_random(tag_count)
-    prng = Random.new
-    check = true
-    while check do
-      a = prng.rand(tag_count)+1
-      b = prng.rand(tag_count)+1
-      c = prng.rand(tag_count)+1
-      check = false if a != b && b != c && c != a
-    end
-    [a,b,c]
-  end
-
-
 
 end
