@@ -12,12 +12,16 @@
 #
 
 class Post < ActiveRecord::Base
+	include CustomFields
+
   has_many :comments, :as => :target, dependent: :destroy
   has_one :picture, as: :assetable, dependent: :destroy
 
   accepts_nested_attributes_for :picture
 
   validates :title, :slug, :content, presence: true
+
+  custom_fields :bgcolor, :font_size, :color
 
   paginates_per 10
 end

@@ -1,11 +1,20 @@
-var ready;
+var ready, apply_style_for_post;
+var css_style = gon.css_style
+
+apply_style_for_post = function(){
+	$(".post_style").css({'background-color': css_style["bgcolor"],
+												'color': css_style["color"],
+												'font-size': css_style["font_size"]+"px"});
+}
+
 
 ready = function(){
-  $("#tag_ids").select2({ tags: true, theme: "bootstrap" });
+  $("#tag_ids").select2({theme: "bootstrap" });
+  apply_style_for_post();
 };
 
+
+
 $(document).ready(ready);
-/**
- * if using turbolinks
- */
-$(document).on('page:load', ready);
+
+window.onload = ready;

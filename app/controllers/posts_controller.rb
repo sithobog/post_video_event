@@ -8,6 +8,8 @@ class PostsController < ApplicationController
   end  
 
   def show
+    @hash_for_js = @post.settings
+    gon.css_style = @post.settings
     @tags = Tag.where(id: @post.tag_ids)
     @comment = Comment.new
     @comments = @post.comments.all
@@ -60,7 +62,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :slug, :content, picture_attributes: [:data])
+      params.require(:post).permit(:title, :slug, :content, :color, :bgcolor, :font_size, picture_attributes: [:data])
     end
 
     def find_post

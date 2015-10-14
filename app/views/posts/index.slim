@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    = link_to 'New post',new_post_path, class: "btn btn-success"
+    = link_to 'New post',new_post_path, class: "btn btn-success", data: {no_turbolink: true}
 .row
   - if @posts.empty?
     h1 No posts
@@ -9,10 +9,10 @@
       .col-sm-6
         .panel.panel-default
           .panel-heading
-            = link_to post.title, post
+            = link_to post.title, post, data: {no_turbolink: true}
           .panel-body
             = truncate(post.content, length: 50)
-            = link_to 'Edit', edit_post_path(post), class: "btn btn-warning pull-right"
+            = link_to 'Edit', edit_post_path(post), class: "btn btn-warning pull-right", data: {no_turbolink: true}
             = link_to 'Delete',post_path(post), class: "btn btn-danger pull-right", method: :delete
 .row
   = paginate @posts 

@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009200020) do
+ActiveRecord::Schema.define(version: 20151014095436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "assets", force: :cascade do |t|
     t.text     "filename",                  null: false
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20151009200020) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "tag_ids",    default: [],              array: true
+    t.hstore   "settings",   default: {}, null: false
   end
 
   add_index "posts", ["tag_ids"], name: "index_posts_on_tag_ids", using: :gin
