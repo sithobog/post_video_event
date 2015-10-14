@@ -1,15 +1,16 @@
 .row
   .col-xs-12
     = link_to 'New tag',new_tag_path, class: "btn btn-success"
-.row
-  - if @tags.empty? 
-    h2 No tags
-  - else
-    - @tags.each do |tag|
-      .col-xs-2
-        b name: 
-        = tag.name
-        br
-        b slug: 
-        = tag.slug
-        = link_to 'Delete', tag_path(tag), method: :delete, class: 'btn btn-danger pull-right'
+- cache @tags do
+  .row
+    - if @tags.empty? 
+      h2 No tags
+    - else
+      - @tags.each do |tag|
+        .col-xs-2
+          b name: 
+          = tag.name
+          br
+          b slug: 
+          = tag.slug
+          = link_to 'Delete', tag_path(tag), method: :delete, class: 'btn btn-danger pull-right'
