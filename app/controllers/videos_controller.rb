@@ -11,12 +11,14 @@ class VideosController < ApplicationController
     @tags = Tag.where(id: @video.tag_ids)
     @comment = Comment.new
     @comments = @video.comments.all
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render template: "/videos/show.slim",
-                pdf: "report",
-                layout: "pdf.slim"
+    if stale?(@video)
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render template: "/videos/show.slim",
+                  pdf: "report",
+                  layout: "pdf.slim"
+        end
       end
     end
   end

@@ -13,12 +13,14 @@ class PostsController < ApplicationController
     @tags = Tag.where(id: @post.tag_ids)
     @comment = Comment.new
     @comments = @post.comments.all
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render template: "/posts/show.pdf.slim",
-                pdf: "report",
-                layout: "pdf.slim"
+    if stale?(@post)
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render template: "/posts/show.pdf.slim",
+                  pdf: "report",
+                  layout: "pdf.slim"
+        end
       end
     end
   end
