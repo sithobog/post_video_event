@@ -2,7 +2,7 @@
   h3 Here is no comment yet
 - else
   - @comments.each do |comment|
-    .comment
+    div class="comment" id="comment_#{comment.id}"
       p
         b Author: 
         = comment.author_name

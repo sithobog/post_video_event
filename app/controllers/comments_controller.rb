@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    WebsocketRails[:comments].trigger 'destroy', @comment
     redirect_to :back
   end
 

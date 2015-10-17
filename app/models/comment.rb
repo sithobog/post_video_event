@@ -12,6 +12,10 @@
 #
 
 class Comment < ActiveRecord::Base
+
+	default_scope { order(created_at: :desc) }
+
   belongs_to :target, :polymorphic => true, touch: true
+
   validates :author_name, :content, presence: true
 end
