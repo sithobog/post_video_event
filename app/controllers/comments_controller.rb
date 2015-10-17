@@ -5,7 +5,9 @@ class CommentsController < ApplicationController
   def create
     @comment = @target.comments.create(comment_params)
     respond_to do |format|
+      WebsocketRails[:comments].trigger 'new', @comment
       format.html {redirect_to :controller => @target.class.to_s.pluralize.downcase, :action => :show, :id => @target.id}
+      format.json {redirect_to :controller => @target.class.to_s.pluralize.downcase, :action => :show, :id => @target.id, status: :created, location: @comment}
     end
   end
 

@@ -9,7 +9,7 @@
       .col-sm-6
         .panel.panel-default
           .panel-heading
-            =link_to event.title, event
+            =link_to event.title, event, data: {no_turbolink: true}
           .panel-body
             = event.started_at.strftime("%d %B %Y")
             = link_to 'Edit', edit_event_path(event), class: "btn btn-warning pull-right"

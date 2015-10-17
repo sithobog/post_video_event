@@ -36,6 +36,8 @@ gem 'mini_magick'
 
 gem 'select2-rails'
 
+gem 'websocket-rails'
+
 #to pass variables from controllers to js
 gem 'gon'
 

@@ -9,7 +9,7 @@
       .col-sm-6
         .panel.panel-default
           .panel-heading
-            =link_to video.title, video
+            =link_to video.title, video, data: {no_turbolink: true}
           .panel-body
             =  truncate(video.description, length: 50)
             = link_to 'Edit', edit_video_path(video), class: "btn btn-warning pull-right"

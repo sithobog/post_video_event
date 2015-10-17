@@ -17,3 +17,24 @@
 //= require select2
 //= require jqcloud
 //= require_tree .
+//= require websocket_rails/main
+
+
+
+var path;
+
+var path = window.location.pathname;
+var dispatcher = new WebSocketRails('localhost:3000/websocket');
+channel = dispatcher.subscribe('comments');
+channel.bind('new', function(comment){
+	var check_path = comment.target_type.toLowerCase()+"s/"+comment.target_id;
+	console.log('a new comment about ' + comment.id + ' arrived!');
+	if (path.indexOf(check_path) > -1){
+		$(".comment-form").before("<p>TEST CASE</p>");
+	}
+});
+//channel.bind('destroy',function(comment){
+//	console.log('deleted comment ' + comment.id);
+//	$("#comment_"+comment.id).remove();
+//});
+
