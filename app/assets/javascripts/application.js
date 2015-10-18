@@ -33,7 +33,7 @@ channel.bind('new', function(comment){
 	if (path.indexOf(check_path) > -1){
 		$(".main-part").after("<div class='comment' id=comment_" + comment.id + "><p><b>Author: </b>" 
 			+ comment.author_name + "</p><br><p>" + comment.content 
-			+ "</p><a href=/comments/"+ comment.id + " class='btn btn-danger pull-right'>Delete</a></div>");
+			+ "</p><a href=/comments/"+ comment.id + " class='btn btn-danger pull-right' data-method='delete'>Delete</a></div>");
 	}
 });
 
@@ -41,3 +41,4 @@ channel.bind('destroy',function(comment){
 	console.log('deleted comment ' + comment.id);
 	$("#comment_"+comment.id).remove();
 });
+
