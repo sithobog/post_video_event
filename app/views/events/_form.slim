@@ -10,20 +10,20 @@
           - @event.errors.full_messages.each do |msg|
             li = msg
 
-    = f.label :title
+    = f.label :title, (t :title)
     = f.text_field :title
 
-    = f.label :address
+    = f.label :address, (t :address)
     = f.text_field :address
 
-    = f.label :started_at
+    = f.label :started_at, (t :started_at)
     = f.date_field :started_at
 
-    = f.label :tags
+    = f.label :tags, (t :tags)
     = select_tag(:tag_ids,options_from_collection_for_select(@tags, :id, :name, @event.tag_ids), multiple: true, class: 'form-control')
 
     = f.fields_for :attachment do |attach|
-      = attach.label :data
+      = attach.label :data, (t :data)
       = attach.file_field :data
 
-    = f.submit class: "btn btn-primary"
+    = f.submit (t :create_event), class: "btn btn-primary"

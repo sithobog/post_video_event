@@ -2,7 +2,7 @@
   #tag_cloud
 .row
   - if !@posts.empty?
-    h2 Latest posts
+    h2 = t :latest_posts
     -@posts.each do |post|
       = link_to post_path(post) do 
         .well.col-md-4.text-center
@@ -13,7 +13,7 @@
           = truncate(post.content, length: 45)
 .row
   - if !@videos.empty?
-    h2 Latest videos
+    h2 = t :latest_videos
     -@videos.each do |video|
       = link_to video_path(video) do 
         .well.col-md-4.text-center
@@ -22,13 +22,13 @@
           = truncate(video.description, length: 45)
 .row
   - if !@events.empty?
-    h2 Latest events
+    h2 = t :latest_events
     -@events.each do |event|
       = link_to event_path(event) do 
         .well.col-md-4.text-center
           = event.title
           br
-          = event.started_at.strftime("%d %B %Y")
+          = l event.started_at, format: :long_no_hours
 
 
 

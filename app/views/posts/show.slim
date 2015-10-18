@@ -1,6 +1,6 @@
 h2  #{@post.title}
 -if !@tags.empty?
-  p.slug = @post.created_at.strftime("%d %B %Y")
+  p.slug = l @post.created_at, format: :long_no_hours
   br
   == link_to_pdf(@post)
   = render "tag_loop"

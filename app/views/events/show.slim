@@ -4,10 +4,10 @@
   	= render "tag_loop"
     == link_to_pdf(@event)
     br
-    | start date:
-    = @event.started_at
+    | #{t :started_at}: 
+    = l @event.started_at, format: :long_no_hours
     br
-    | address:
+    | #{t :address}: 
     = @event.address
     br
     = link_to File.basename(@event.attachment.data_url), "/uploads/attachment/#{@event.id}/#{File.basename(@event.attachment.data_url)}"

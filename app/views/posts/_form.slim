@@ -10,30 +10,30 @@
           - @post.errors.full_messages.each do |msg|
             li = msg
 
-    = f.label :title
+    = f.label :title, (t :title)
     = f.text_field :title
 
-    = f.label :slug
+    = f.label :slug, (t :slug)
     = f.text_field :slug
 
-    = f.label :content
+    = f.label :content, (t :content)
     = f.text_area :content
 
-    = f.label :color
+    = f.label :color, (t :color)
     = f.color_field :color
 
-    = f.label :bgcolor
+    = f.label :bgcolor, (t :bgcolor)
     = f.color_field :bgcolor
 
-    = f.label :font_size
+    = f.label :font_size, (t :font_size)
     = f.number_field :font_size
 
     = f.fields_for :picture do |pic|
-      = pic.label :picture
+      = pic.label :picture, (t :picture)
       = pic.file_field :data
 
 
-    = f.label :tags
+    = f.label :tags, (t :tags)
     = select_tag(:tag_ids,options_from_collection_for_select(@tags, :id, :name, @post.tag_ids), multiple: true, class: 'form-control')
 
-    = f.submit class: "btn btn-primary"
+    = f.submit (t :create_post), class: "btn btn-primary"

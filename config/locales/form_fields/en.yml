@@ -1,0 +1,14 @@
+en:
+  title: Title
+  slug: Slug
+  content: Content
+  color: Color
+  bgcolor: Background color
+  fontsize: Font size
+  picture: Picture
+  tags: Tags
+  description: Description
+  address: Address
+  started_at: Start date
+  data: Data
+  name: Name

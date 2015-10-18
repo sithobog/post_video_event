@@ -1,4 +1,4 @@
 .well
-  h4 Post
+  h4 = (t :post)
   = link_to "#{post.title}", post
   p = truncate(post.content, length: 25)

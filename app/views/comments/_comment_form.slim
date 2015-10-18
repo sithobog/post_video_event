@@ -1,10 +1,10 @@
 .form.pull-left.border.comment-form
-  h2 Add coment
+  h2 = t :add_comment
   = form_for @comment, :url => target_url do |f|
-    =f.label :author_name
+    =f.label :author_name, (t :author_name)
     =f.text_field :author_name
     br
-    =f.label :content
+    =f.label :content, (t :content)
     =f.text_area :content
     br
-    =f.submit class: "btn btn-primary"
+    =f.submit (t :create_comment), class: "btn btn-primary"

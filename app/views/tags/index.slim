@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    = link_to 'New tag',new_tag_path, class: "btn btn-success"
+    = link_to (t :new_tag),new_tag_path, class: "btn btn-success"
 - cache @tags do
   .row
     - if @tags.empty? 
@@ -13,4 +13,4 @@
           br
           b slug: 
           = tag.slug
-          = link_to 'Delete', tag_path(tag), method: :delete, class: 'btn btn-danger pull-right'
+          = link_to (t :delete),tag_path(tag), method: :delete, class: 'btn btn-danger pull-right'

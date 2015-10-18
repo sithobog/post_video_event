@@ -10,16 +10,16 @@
           - @video.errors.full_messages.each do |msg|
             li = msg
 
-    = f.label :title
+    = f.label :title, (t :title)
     = f.text_field :title
 
-    = f.label :slug
+    = f.label :slug, (t :slug)
     = f.text_field :slug
 
-    = f.label :description
+    = f.label :description, (t :description)
     = f.text_area :description
 
-    = f.label :tags
+    = f.label :tags, (t :tags)
     = select_tag(:tag_ids,options_from_collection_for_select(@tags, :id, :name, @video.tag_ids), multiple: true, class: 'form-control')
 
-    = f.submit class: "btn btn-primary"
+    = f.submit (t :create_video), class: "btn btn-primary"

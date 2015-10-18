@@ -1,5 +1,5 @@
 .well
-  h4 Event
+  h4 = (t :event)
   = link_to "#{event.title}", event
-  p started date: #{event.started_at.strftime("%d %B %Y")}
-  p address: #{event.address}
+  p #{t :started_at}: #{l event.started_at, format: :long_no_hours}
+  p #{t :address}: #{event.address}

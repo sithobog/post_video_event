@@ -1,12 +1,12 @@
 - if @comments.empty?
-  h3 Here is no comment yet
+  h3 = t :no_comment
 - else
   - @comments.each do |comment|
     div class="comment" id="comment_#{comment.id}"
       p
-        b Author: 
+        b #{t :author}: 
         = comment.author_name
       br
       p
         = comment.content
-      = link_to 'Delete', comment_path(comment), class: "btn btn-danger pull-right", method: :delete
+      = link_to (t :delete), comment_path(comment), class: "btn btn-danger pull-right", method: :delete

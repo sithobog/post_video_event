@@ -1,0 +1,14 @@
+ru:
+  title: Заголовок
+  slug: Метка
+  content: Содержимое
+  color: Цвет
+  bgcolor: Цвет фона
+  fontsize: Размер шрифта
+  picture: Пиктура
+  tags: Тэги
+  description: Описание
+  address: Адрес
+  started_at: Дата начала
+  data: Данные
+  name: Имя

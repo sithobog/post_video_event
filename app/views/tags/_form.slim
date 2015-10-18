@@ -10,10 +10,10 @@
           - @tag.errors.full_messages.each do |msg|
             li = msg
 
-    = f.label :name
+    = f.label :name, (t :name)
     = f.text_field :name
 
-    = f.label :slug
+    = f.label :slug, (t :slug)
     = f.text_field :slug
 
-    = f.submit class: "btn btn-primary"
+    = f.submit (t :create_tag), class: "btn btn-primary"

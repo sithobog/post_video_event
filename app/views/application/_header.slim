@@ -1,12 +1,16 @@
 .container
   ul class="nav nav-tabs"
     li role="presentation"
-      = link_to 'Home',root_path, data: {no_turbolink: true}
+      = link_to  (t :home),root_path, data: {no_turbolink: true}
     li role="presentation"
-      = link_to 'Posts',posts_path, data: {no_turbolink: true}
+      = link_to (t :posts),posts_path, data: {no_turbolink: true}
     li role="presentation"
-      = link_to 'Videos', videos_path, data: {no_turbolink: true}
+      = link_to (t :videos), videos_path, data: {no_turbolink: true}
     li role="presentation"
-      = link_to 'Events', events_path, data: {no_turbolink: true}
+      = link_to (t :events), events_path, data: {no_turbolink: true}
     li role="presentation"
-      = link_to 'Tags', tags_path, data: {no_turbolink: true}
+      = link_to (t :tags), tags_path, data: {no_turbolink: true}
+    - if I18n.locale == I18n.default_locale 
+      = link_to "English", {:locale=>'en'}, class: "locale en_locale pull-right"
+    else
+      = link_to "Russian", {:locale=>'ru'}, class: "locale ru_locale pull-right"

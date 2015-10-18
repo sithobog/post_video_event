@@ -4,10 +4,10 @@
     = render "tag_loop"
     == link_to_pdf(@video)
     br
-    | slug:
+    b #{t :slug}: 
     = @video.slug
     br
-    | description:
+    b #{t :description}: 
     = @video.description
 = render 'comments/comments_loop'
 = render 'comments/comment_form'
