@@ -10,7 +10,6 @@
       = link_to (t :events), events_path, data: {no_turbolink: true}
     li role="presentation"
       = link_to (t :tags), tags_path, data: {no_turbolink: true}
-    - if I18n.locale == I18n.default_locale 
-      = link_to "English", {:locale=>'en'}, class: "locale en_locale pull-right"
-    else
-      = link_to "Russian", {:locale=>'ru'}, class: "locale ru_locale pull-right"
+    .locales.pull-right
+      = link_to "", {:locale=>'en'}, class: "sprite sprite_en"
+      = link_to "", {:locale=>'ru'}, class: "sprite sprite_ru"

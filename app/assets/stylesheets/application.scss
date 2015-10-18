@@ -154,9 +154,32 @@ span.tag{
   }
 }
 
-.locale{
-  
+.locales{
+  padding: 5px;
+  background-color: #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
 }
+
+.sprite {
+  margin: 0 5px;
+  background-image: url(spritesheet.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.sprite_en {
+  width: 25px;
+  height: 14px;
+  background-position: -1px -1px;
+}
+
+.sprite_ru {
+  width: 25px;
+  height: 14px;
+  background-position: -28px -1px;
+}
+
 
 @media (min-width: 768px){
   .main-part img{
