@@ -24,9 +24,9 @@ var path;
 var path = window.location.pathname;
 var dispatcher;
 
-dispatcher = new WebSocketRails('localhost:3000/websocket');
+//dispatcher = new WebSocketRails('localhost:3000/websocket');
 //change localhost for real URL like in example below
-//dispatcher = new WebSocketRails('peaceful-wave-5002.herokuapp.com/websocket');
+dispatcher = new WebSocketRails('peaceful-wave-5002.herokuapp.com/websocket');
 channel = dispatcher.subscribe('comments');
 channel.bind('new', function(comment){
   var type = comment.target_type.toLowerCase();
