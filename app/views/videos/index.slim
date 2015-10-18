@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    = link_to (t :new_video),new_video_path, class: "btn btn-success"
+    = link_to (t :new_video),new_video_path, class: "btn btn-success", data: {no_turbolink: true}
 .row
   - if @videos.empty?
     h1 No videos
@@ -12,7 +12,7 @@
             =link_to video.title, video, data: {no_turbolink: true}
           .panel-body
             =  truncate(video.description, length: 50)
-            = link_to (t :edit), edit_video_path(video), class: "btn btn-warning pull-right"
+            = link_to (t :edit), edit_video_path(video), class: "btn btn-warning pull-right", data: {no_turbolink: true}
             = link_to (t :delete),video_path(video), class: "btn btn-danger pull-right", method: :delete
 .row
   = paginate @videos 

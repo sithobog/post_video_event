@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    = link_to (t :new_event),new_event_path, class: "btn btn-success"
+    = link_to (t :new_event),new_event_path, class: "btn btn-success", data: {no_turbolink: true}
 .row
   - if @events.empty?
     h1 No events
@@ -12,7 +12,7 @@
             =link_to event.title, event, data: {no_turbolink: true}
           .panel-body
             = l event.started_at, format: :long_no_hours
-            = link_to (t :edit), edit_event_path(event), class: "btn btn-warning pull-right"
+            = link_to (t :edit), edit_event_path(event), class: "btn btn-warning pull-right", data: {no_turbolink: true}
             = link_to (t :delete),event_path(event), class: "btn btn-danger pull-right", method: :delete
 .row
   = paginate @events 
