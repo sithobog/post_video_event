@@ -8,15 +8,9 @@ class HomeController < ApplicationController
 
   private
     def cloud
-      @tag_hash = Hash.new
+      @tag_hash = Hash.new(0)
       @array_for_render = Array.new
       @tags = Tag.all
-
-      # create keys from tags id
-      #
-      @tags.each do |tag|
-        @tag_hash[tag.id] = 0
-      end
 
       # counting tags
       #
@@ -27,11 +21,12 @@ class HomeController < ApplicationController
       end
 
       # create array for JQCloud
+      _locale = "?locale=#{I18n.locale}"
       @tags.each do |tag|
         @array_for_render << {
           text: tag.name,
           weight: @tag_hash[tag.id],
-          link: "tags/#{tag.slug}"
+          link: "tags/#{tag.slug}#{_locale}"
         }
       end
       # create variable for JS

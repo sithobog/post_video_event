@@ -11,5 +11,5 @@
     li role="presentation"
       = link_to (t :tags), tags_path, data: {no_turbolink: true}
     .locales.pull-right
-      = link_to "", {:locale=>'en'}, class: "sprite sprite_en"
-      = link_to "", {:locale=>'ru'}, class: "sprite sprite_ru"
+      = link_to "", {:locale=>'en'}, class: "sprite sprite_en", data: {no_turbolink: true}
+      = link_to "", {:locale=>'ru'}, class: "sprite sprite_ru", data: {no_turbolink: true}
