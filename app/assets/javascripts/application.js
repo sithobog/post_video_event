@@ -22,23 +22,26 @@
 var path;
 
 var path = window.location.pathname;
-var dispatcher = new WebSocketRails('localhost:3000/websocket');
+var dispatcher;
+
+dispatcher = new WebSocketRails('localhost:3000/websocket');
+//change localhost for real URL like in example below
+//dispatcher = new WebSocketRails('peaceful-wave-5002.herokuapp.com/websocket');
 channel = dispatcher.subscribe('comments');
 channel.bind('new', function(comment){
-	var type = comment.target_type.toLowerCase();
-	var check_path = type +"s/"+comment.target_id;
-	console.log('a new comment for ' + type + '#' + comment.target_id +' have arrived!');
-	//if path is equal to posts'path then it will add comment
-	//
-	if (path.indexOf(check_path) > -1){
-		$(".main-part").after("<div class='comment' id=comment_" + comment.id + "><p><b>Author: </b>" 
-			+ comment.author_name + "</p><br><p>" + comment.content 
-			+ "</p><a href=/comments/"+ comment.id + " class='btn btn-danger pull-right' data-method='delete'>Delete</a></div>");
-	}
+  var type = comment.target_type.toLowerCase();
+  var check_path = type +"s/"+comment.target_id;
+  console.log('a new comment for ' + type + '#' + comment.target_id +' have arrived!');
+  //if path is equal to posts'path then it will add comment
+  //
+  if (path.indexOf(check_path) > -1){
+    $(".main-part").after("<div class='comment' id=comment_" + comment.id + "><p><b>Author: </b>" 
+      + comment.author_name + "</p><br><p>" + comment.content 
+      + "</p><a href=/comments/"+ comment.id + " class='btn btn-danger pull-right' data-method='delete'>Delete</a></div>");
+  }
 });
 
 channel.bind('destroy',function(comment){
-	console.log('deleted comment ' + comment.id);
-	$("#comment_"+comment.id).remove();
+  console.log('deleted comment ' + comment.id);
+  $("#comment_"+comment.id).remove();
 });
-
