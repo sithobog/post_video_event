@@ -1,3 +1,6 @@
+- content_for :head do
+  = javascript_include_tag "websocket.js"
+
 .panel.panel-info.main-part
   .panel-heading = @video.title
   .panel-body
