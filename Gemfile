@@ -30,7 +30,6 @@ gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'select2-rails'
@@ -58,6 +57,10 @@ gem "jqcloud-rails"
 gem 'rails_12factor', group: :production
 
 gem 'thin', group: :production
+
+gem 'figaro'
+gem 'fog', require: 'fog/aws'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 group :development, :test do
 

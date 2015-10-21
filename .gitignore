@@ -18,3 +18,9 @@
 
 # Ignore attachments
 /public/uploads
+
+# Ignore amazon S3 credentials
+config/initializers/secret_variables.rb
+
+# Ignore application configuration
+/config/application.yml
